@@ -38,6 +38,29 @@ namespace BasicGraphAdjacencyMatrices
 
         }
 
+        public bool IsUndirected
+        {
+            get
+            {
+
+                for (int a = 0; a < NodeCount; a++)
+                {
+                    for (int b = a; b < NodeCount; b++) //Used "NodeCount - a" as some values will already have been checked
+                    {
+
+                        if (this[a, b] != this[b, a])
+                        {
+                            return false;
+                        }
+
+                    }
+                }
+
+                return true;
+
+            }
+        }
+
         public void SetValues(float?[,] values) => matrix = values;
 
         /// <summary>
