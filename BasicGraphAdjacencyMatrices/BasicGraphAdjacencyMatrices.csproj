@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AdjacencyMatrix.cs" />
     <Compile Include="DijkstraAlgorithm.cs" />
+    <Compile Include="FloydAlgorithm.cs" />
     <Compile Include="PrimAlgorithm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

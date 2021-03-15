@@ -12,6 +12,19 @@ namespace BasicGraphAdjacencyMatrices
         private double?[,] matrix;
         public int NodeCount => matrix.GetLength(0);
 
+        public double?[,] GetMatrixCopy()
+        {
+
+            double?[,] output = new double?[NodeCount, NodeCount];
+
+            for (int x = 0; x < NodeCount; x++)
+                for (int y = 0; y < NodeCount; y++)
+                    output[x, y] = this[x, y];
+
+            return output;
+
+        }
+
         public double? this[int startNode, int endNode]
         {
             get
