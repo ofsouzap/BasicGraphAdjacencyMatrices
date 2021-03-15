@@ -9,10 +9,10 @@ namespace BasicGraphAdjacencyMatrices
     {
 
         //Values of null mean no available route
-        private float?[,] matrix;
+        private double?[,] matrix;
         public int NodeCount => matrix.GetLength(0);
 
-        public float? this[int startNode, int endNode]
+        public double? this[int startNode, int endNode]
         {
             get
             {
@@ -27,11 +27,11 @@ namespace BasicGraphAdjacencyMatrices
         public AdjacencyMatrix(int size)
         {
 
-            matrix = new float?[size,size];
+            matrix = new double?[size,size];
 
         }
 
-        public AdjacencyMatrix(float?[,] values)
+        public AdjacencyMatrix(double?[,] values)
         {
 
             SetValues(values);
@@ -61,7 +61,7 @@ namespace BasicGraphAdjacencyMatrices
             }
         }
 
-        public void SetValues(float?[,] values) => matrix = values;
+        public void SetValues(double?[,] values) => matrix = values;
 
         /// <summary>
         /// Removes the edge connecting the start and end nodes in one direction
@@ -94,7 +94,7 @@ namespace BasicGraphAdjacencyMatrices
         /// <param name="distance">The distance between the nodes</param>
         public void SetEdge(int startNode,
             int endNode,
-            float distance)
+            double distance)
         {
             matrix[startNode, endNode] = distance;
         }
@@ -107,7 +107,7 @@ namespace BasicGraphAdjacencyMatrices
         /// <param name="distance">The distance between the two nodes</param>
         public void SetEdgeUndirected(int node1,
             int node2,
-            float distance)
+            double distance)
         {
             SetEdge(node1, node2, distance);
             SetEdge(node2, node1, distance);

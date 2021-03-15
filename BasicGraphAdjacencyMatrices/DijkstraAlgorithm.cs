@@ -11,9 +11,9 @@ namespace BasicGraphAdjacencyMatrices
         {
 
             public bool minimumDistanceSet = false;
-            public float currentMinimumDistance = float.MaxValue;
+            public double currentMinimumDistance = double.MaxValue;
 
-            public bool SuggestNewMinimumDistance(float distance)
+            public bool SuggestNewMinimumDistance(double distance)
             {
 
                 if (minimumDistanceSet)
@@ -44,7 +44,7 @@ namespace BasicGraphAdjacencyMatrices
         public static int[] Run(AdjacencyMatrix matrix,
             int startNode,
             int endNode,
-            out float totalDistance)
+            out double totalDistance)
         {
 
             #region Node values calculation
@@ -76,11 +76,11 @@ namespace BasicGraphAdjacencyMatrices
                     for (int considerationEndNode = 0; considerationEndNode < matrix.NodeCount; considerationEndNode++)
                     {
 
-                        float? distance = matrix[considerationStartNode, considerationEndNode];
+                        double? distance = matrix[considerationStartNode, considerationEndNode];
 
                         if (distance != null)
                             nodeValues[considerationEndNode].SuggestNewMinimumDistance(
-                                nodeValues[considerationStartNode].currentMinimumDistance + (float)distance
+                                nodeValues[considerationStartNode].currentMinimumDistance + (double)distance
                             );
 
                     }
@@ -91,7 +91,7 @@ namespace BasicGraphAdjacencyMatrices
 
                 #region Setting a final value
 
-                float currentMinimumDistance = float.MaxValue;
+                double currentMinimumDistance = double.MaxValue;
                 int currentMinimumDistanceNode = 0;
 
                 for (int i = 0; i < matrix.NodeCount; i++)
@@ -136,7 +136,7 @@ namespace BasicGraphAdjacencyMatrices
                 foreach (int node in matrix.GetNodeSources(prevNode))
                 {
 
-                    float edgeLength = (float)matrix[node, prevNode];
+                    double edgeLength = (double)matrix[node, prevNode];
 
                     if (!nodeValues[node].minimumDistanceSet)
                         continue;

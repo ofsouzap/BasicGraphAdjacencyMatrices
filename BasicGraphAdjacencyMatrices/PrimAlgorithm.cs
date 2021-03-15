@@ -30,7 +30,7 @@ namespace BasicGraphAdjacencyMatrices
 
                 int minimumDistanceNewNode = 0; //The node that might be set to used
                 int[] minimumDistanceArc = null;
-                float minimumDistance = float.MaxValue;
+                double minimumDistance = double.MaxValue;
 
                 #region Find minimum edge
 
@@ -46,14 +46,14 @@ namespace BasicGraphAdjacencyMatrices
                         if (usedNodes[toNode]) //Don't use node if already considered
                             continue;
 
-                        float? entry = matrix[fromNode, toNode];
+                        double? entry = matrix[fromNode, toNode];
 
                         if (entry == null)
                             continue;
                         else
                         {
 
-                            float distance = (float)entry;
+                            double distance = (double)entry;
 
                             if (distance < minimumDistance)
                             {
