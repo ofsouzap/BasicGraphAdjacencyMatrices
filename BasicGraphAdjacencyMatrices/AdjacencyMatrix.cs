@@ -74,6 +74,66 @@ namespace BasicGraphAdjacencyMatrices
             }
         }
 
+        public int GetNodeValency(int node)
+        {
+
+            if (!IsUndirected)
+                throw new ArgumentException("Shouldn't be checking node valencies of directed graphs");
+
+            int valency = 0;
+
+            for (int otherNode = 0; otherNode < NodeCount; otherNode++)
+                if (matrix[node, otherNode] != null)
+                    valency++;
+
+            return valency;
+
+        }
+
+        public bool IsEulerian
+        {
+            get
+            {
+
+                if (!IsUndirected)
+                    throw new ArgumentException("Shouldn't be checking whether graph is Eulerian using a directed graph");
+
+                for (int node = 0; node < NodeCount; node++)
+                {
+
+                    if (GetNodeValency(node) % 2 != 0)
+                        return false;
+
+                }
+
+                return true;
+
+            }
+        }
+
+        public bool IsSemiEulerian
+        {
+            get
+            {
+
+                if (!IsUndirected)
+                    throw new ArgumentException("Shouldn't be checking whether graph is semi-Eulerian using a directed graph");
+
+                int nonEvenNodes = 0;
+
+                for (int node = 0; node < NodeCount; node++)
+                {
+
+                    if (GetNodeValency(node) % 2 != 0)
+                        nonEvenNodes++;
+
+                }
+
+                return nonEvenNodes == 2;
+
+            }
+        }
+
         public void SetValues(double?[,] values) => matrix = values;
 
         /// <summary>
