@@ -102,8 +102,7 @@ namespace BasicGraphAdjacencyMatrices
         /// <param name="distanceTable">The distance table to use</param>
         /// <param name="routeDistance">The total distance that the route will take</param>
         /// <returns>The shortest path as an array of nodes</returns>
-        public static int[] FindRoute(AdjacencyMatrix matrix,
-            int startNode,
+        public static int[] FindRoute(int startNode,
             int endNode,
             int[,] routeTable,
             double[,] distanceTable,
@@ -174,21 +173,18 @@ namespace BasicGraphAdjacencyMatrices
             out double routeDistance)
         {
             int[,] routeTable = Run(matrix, out double[,] distanceTable);
-            return FindRoute(matrix,
-                startNode,
+            return FindRoute(startNode,
                 endNode,
                 routeTable,
                 distanceTable,
                 out routeDistance);
         }
 
-        public static int[] FindRoute(AdjacencyMatrix matrix,
-            int startNode,
+        public static int[] FindRoute(int startNode,
             int endNode,
             int[,] routeTable,
             double[,] distanceTable)
-            => FindRoute(matrix,
-                startNode,
+            => FindRoute(startNode,
                 endNode,
                 routeTable,
                 distanceTable,
