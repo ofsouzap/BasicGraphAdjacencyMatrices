@@ -263,6 +263,31 @@ namespace BasicGraphAdjacencyMatrices
 
         }
 
+        public AdjacencyMatrix GenerateTableOfLeastDistances()
+        {
+
+            double?[,] newMatrixValues = new double?[NodeCount, NodeCount];
+
+            for (int column = 0; column < NodeCount; column++)
+            {
+                for (int row = 0; row < NodeCount; row++)
+                {
+
+                    if (column == row)
+                        newMatrixValues[column, row] = null;
+
+                    DijkstraAlgorithm.Run(this, column, row, out double entryDistance);
+
+                    newMatrixValues[column, row] = entryDistance;
+
+                }
+            }
+
+            return new AdjacencyMatrix(newMatrixValues);
+
+        }
+        //TODO - method for new matrix for table of least distances (only for undirected graphs)
+
     }
 
 }
