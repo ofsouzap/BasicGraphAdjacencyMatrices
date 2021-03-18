@@ -286,7 +286,6 @@ namespace BasicGraphAdjacencyMatrices
             return new AdjacencyMatrix(newMatrixValues);
 
         }
-        //TODO - method for new matrix for table of least distances (only for undirected graphs)
 
     }
 
