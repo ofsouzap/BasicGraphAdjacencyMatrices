@@ -46,6 +46,7 @@
     <Compile Include="FloydAlgorithm.cs" />
     <Compile Include="PrimAlgorithm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteInspection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

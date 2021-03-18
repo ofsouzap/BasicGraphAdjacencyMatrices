@@ -90,6 +90,29 @@ namespace BasicGraphAdjacencyMatrices
 
         }
 
+        public double GetTotalValency()
+        {
+
+            if (!IsUndirected)
+                throw new ArgumentException("Cannot find total valency of directed graph");
+
+            double totalValency = 0;
+
+            for (int column = 0; column < NodeCount; column++)
+                for (int row = column + 1; row < NodeCount; row++)
+                {
+
+                    double? entry = matrix[column, row];
+
+                    if (entry != null)
+                        totalValency += (double)entry;
+
+                }
+
+            return totalValency;
+
+        }
+
         public bool IsEulerian
         {
             get
